@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">userRegisterSampleLabPracticle</string>
+
+
+
+    <string name="name">Name</string>
+    <string name="email">Email</string>
+    <string name="Register">Register</string>
+</resources>
