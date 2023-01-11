@@ -15,7 +15,7 @@ class SecondActivity : AppCompatActivity() {
 
         val strName = findViewById<TextView>(R.id.textView)
 
-        /*     strName.text = "welcome"+name+"..!"+"\n"+"your e mail address is "+email*/
+
         strName.text = "welcome$name ..!\n your e mail address is : $email"
 
 

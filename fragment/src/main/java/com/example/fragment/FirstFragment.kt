@@ -1,11 +1,13 @@
 package com.example.fragment
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.EditText
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.navigation.Navigation
 
@@ -23,8 +25,7 @@ class FirstFragment : Fragment() {
         val etName = view.findViewById<EditText>(R.id.EtPersonName)
         val etEmail = view.findViewById<EditText>(R.id.EtEmail)
 
-        // Inflate the layout for this fragment
-       // return inflater.inflate(R.layout.fragment_first, container, false)
+
         val button = view.findViewById<Button>(R.id.BtnRegister)
         button.setOnClickListener {
 
@@ -33,11 +34,24 @@ class FirstFragment : Fragment() {
 val bundle = Bundle()
             bundle.putString("data",strName)
             bundle.putString("data2",strEmail)
-            val fragment = SecondFragment()
-            fragment.arguments = bundle
-            fragmentManager?.beginTransaction()?.replace(R.id.nav_host,fragment)?.commit()
-//            Navigation.findNavController(view)
-//                .navigate(R.id.action_firstFragment4_to_secondFragment2)
+
+
+            when{
+
+                strName.isBlank() -> Toast.makeText(requireActivity(), "please enter a valid name", Toast.LENGTH_SHORT).show()
+                strEmail.isBlank() -> Toast.makeText(requireActivity(), "please enter valid e mail", Toast.LENGTH_SHORT).show()
+
+                else -> {
+
+
+                    val fragment = SecondFragment()
+                    fragment.arguments = bundle
+                    fragmentManager?.beginTransaction()?.replace(R.id.nav_host,fragment)?.commit()
+
+                }}
+
+
+
         }
         return view
 
