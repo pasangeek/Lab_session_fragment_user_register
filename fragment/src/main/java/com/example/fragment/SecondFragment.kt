@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import androidx.databinding.DataBindingUtil
 import com.example.fragment.databinding.FragmentFirstBinding
 import com.example.fragment.databinding.FragmentSecondBinding
 
@@ -13,7 +14,7 @@ import com.example.fragment.databinding.FragmentSecondBinding
 class SecondFragment : Fragment() {
 
 
-
+    private lateinit var binding: FragmentSecondBinding
 
 
     override fun onCreateView(
@@ -23,7 +24,7 @@ class SecondFragment : Fragment() {
 
         //val view =inflater.inflate(R.layout.fragment_second, container, false)
 
-        val binding = FragmentSecondBinding.inflate(inflater,container,false)
+        binding = DataBindingUtil.inflate(inflater,R.layout.fragment_second, container, false)
 
 
 
