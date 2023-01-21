@@ -6,23 +6,26 @@ import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
+import androidx.databinding.DataBindingUtil
 import com.example.userregistersamplelabpracticle.R
+import com.example.userregistersamplelabpracticle.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
     private lateinit var button : Button
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
 
-        val etName = findViewById<EditText>(R.id.EtPersonName)
-        val etEmail = findViewById<EditText>(R.id.EtEmail)
+       val binding : ActivityMainBinding =  DataBindingUtil.setContentView(this,R.layout.activity_main)
 
-        button = findViewById(R.id.BtnRegister)
-        button.setOnClickListener {
+        //val etName = findViewById<EditText>(R.id.EtPersonName)
+       // val etEmail = findViewById<EditText>(R.id.EtEmail)
 
-            val strName = etName.text.toString()
-            val strEmail = etEmail.text.toString()
+       // button = findViewById(R.id.BtnRegister)
+       binding.BtnRegister.setOnClickListener {
+
+            val strName = binding.EtPersonName.text.toString()
+            val strEmail = binding.EtEmail.text.toString()
 
             when{
 
