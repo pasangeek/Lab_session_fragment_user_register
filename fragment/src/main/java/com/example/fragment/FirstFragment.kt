@@ -14,7 +14,7 @@ import androidx.navigation.Navigation
 import com.example.fragment.databinding.FragmentFirstBinding
 
 class FirstFragment : Fragment() {
-
+    private lateinit var binding: FragmentFirstBinding
    // private lateinit var binding: FragmentFirstBinding
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -22,7 +22,7 @@ class FirstFragment : Fragment() {
     ): View? {
        // val view = inflater.inflate(R.layout.fragment_first,container,false)
        // val binding : ActivityMainBinding =  DataBindingUtil.setContentView(this,R.layout.activity_main)
-val binding = FragmentFirstBinding.inflate(inflater,container,false)
+ binding = DataBindingUtil.inflate(inflater,R.layout.fragment_first,container,false)
 
        // val etName = view.findViewById<EditText>(R.id.EtPersonName)
        // val etEmail = view.findViewById<EditText>(R.id.EtEmail)
