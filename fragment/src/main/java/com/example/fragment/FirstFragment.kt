@@ -8,30 +8,32 @@ import android.view.ViewGroup
 import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
+import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.navigation.Navigation
+import com.example.fragment.databinding.FragmentFirstBinding
 
 class FirstFragment : Fragment() {
 
-
+   // private lateinit var binding: FragmentFirstBinding
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        val view = inflater.inflate(R.layout.fragment_first,container,false)
+       // val view = inflater.inflate(R.layout.fragment_first,container,false)
+       // val binding : ActivityMainBinding =  DataBindingUtil.setContentView(this,R.layout.activity_main)
+val binding = FragmentFirstBinding.inflate(inflater,container,false)
+
+       // val etName = view.findViewById<EditText>(R.id.EtPersonName)
+       // val etEmail = view.findViewById<EditText>(R.id.EtEmail)
 
 
+      //  val button = view.findViewById<Button>(R.id.BtnRegister)
+       binding.BtnRegister.setOnClickListener {
 
-        val etName = view.findViewById<EditText>(R.id.EtPersonName)
-        val etEmail = view.findViewById<EditText>(R.id.EtEmail)
-
-
-        val button = view.findViewById<Button>(R.id.BtnRegister)
-        button.setOnClickListener {
-
-            val strName = etName.text.toString()
-            val strEmail = etEmail.text.toString()
-val bundle = Bundle()
+            val strName = binding.EtPersonName.text.toString()
+            val strEmail = binding.EtEmail.text.toString()
+            val bundle = Bundle()
             bundle.putString("data",strName)
             bundle.putString("data2",strEmail)
 
@@ -53,12 +55,12 @@ val bundle = Bundle()
 
 
         }
-        return view
+        return binding.root
 
     }
 
 
-    }
+}
 
 
 
